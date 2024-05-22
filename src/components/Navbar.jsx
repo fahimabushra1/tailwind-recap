@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 
 const Navbar = () => {
+  const {logout}= useAuth();
     return (
         <div>
        <div className="navbar bg-base-100">
@@ -16,6 +18,10 @@ const Navbar = () => {
         <li><Link to={"/login"}>Login</Link></li>
         <li><Link to={"/register"}>Sign up</Link></li>
         <li><Link to={"/dashboard"}>Dashboard</Link></li>
+        <li>
+          <button onClick={()=>logout()}  className="bg-yellow-200">Logout
+          </button>
+        </li>
       </ul>
     </div>
     <a className="btn btn-ghost text-xl">daisyUI</a>
@@ -27,10 +33,16 @@ const Navbar = () => {
       <li><Link to={"/login"}>Login</Link></li>
       <li><Link to={"/register"}>Sign up</Link></li>
       <li><Link to={"/dashboard"}>Dashboard</Link></li>
+      <li>
+          <button onClick={()=>logout()} className="bg-yellow-200">Logout
+          </button>
+        </li>
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn">Button</a>
+  <div className="avatar navbar-end">
+  <div className="w-8 rounded-full">
+    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+  </div>
   </div>
 </div>
         </div>
